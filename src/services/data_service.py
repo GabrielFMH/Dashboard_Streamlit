@@ -127,7 +127,8 @@ class DataService:
             agg_col = "quantity"
         
         monthly = df_copy.groupby("year_month").agg({
-            agg_col: "sum"
+            "total_amount": "sum",
+            "quantity": "sum"
         }).reset_index()
         
         monthly["year_month"] = monthly["year_month"].astype(str)
